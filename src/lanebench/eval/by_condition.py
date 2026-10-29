@@ -70,6 +70,8 @@ def image_metrics(g: pd.DataFrame) -> pd.Series:
     for t in (2, 5, 10):
         p, r, f = prf(g[f"tp_pred@{t}"].sum(), g.n_pred.sum(), g[f"tp_gt@{t}"].sum(), g.n_gt.sum())
         out.update({f"lane_p@{t}": p, f"lane_r@{t}": r, f"lane_f1@{t}": f})
+    # 3-class 지표는 L2만. 그룹마다 열이 같아야 groupby.apply가 표로 묶입니다
+    out.update(miou3=np.nan, iou_direct3=np.nan, iou_alt3=np.nan)
     if "cm00" in g and g.cm00.notna().any():
         cm = np.array([[g[f"cm{i}{j}"].sum() for j in range(3)] for i in range(3)])
         out["miou3"], ious = miou_from_confusion(cm)

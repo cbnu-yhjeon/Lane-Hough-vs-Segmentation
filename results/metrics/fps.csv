@@ -1,0 +1,6 @@
+method,device,input,fps,ms
+L0,CPU 1 thread,1280x720,107.47,9.3
+L1,CPU 1 thread,1280x720,97.7,10.23
+L1+,CPU 1 thread,1280x720,85.66,11.67
+L2,NVIDIA GeForce RTX 5060 Ti,640x360,33.0,30.3
+L2,CPU 4 threads,640x360,11.99,83.42
