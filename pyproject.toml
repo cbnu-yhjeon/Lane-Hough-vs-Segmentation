@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lanebench"
+version = "0.1.0"
+description = "Lane / ego-lane detection on BDD100K: classical Hough & IPM pipelines vs. semantic segmentation, with risk-impact analysis"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "opencv-python-headless>=4.8",
+    "pandas",
+    "matplotlib",
+    "tqdm",
+    "tabulate",
+    "torch>=2.4",
+    "torchvision>=0.19",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

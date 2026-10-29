@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# 데이터 원본과 대용량 중간 산출물은 저장소에 넣지 않습니다
+data/
+results/raw/
+results/checkpoints/
+*.pth
+*.pt
